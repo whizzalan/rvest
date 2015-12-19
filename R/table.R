@@ -123,6 +123,9 @@ html_table.xml_node <- function(x, header = NA, trim = TRUE,
     col_names <- paste0("X", seq_len(ncol(out)))
   }
 
+  if (.Platform$OS.type == "windows") {
+    out <- iconv(out, from = "UTF-8", to = "big5")
+  }
   # Convert matrix to list to data frame
   df <- lapply(seq_len(maxp), function(i) {
     utils::type.convert(out[, i], as.is = TRUE, dec = dec)
