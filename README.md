@@ -15,7 +15,7 @@ rating <- lego_movie %>%
   html_text() %>%
   as.numeric()
 rating
-#> [1] 7.8
+#> [1] 7.8 
 
 cast <- lego_movie %>%
   html_nodes("#titleCast .itemprop span") %>%
